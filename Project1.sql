@@ -1,4 +1,3 @@
 CREATE TABLE Main  (
 
 )
-hello
