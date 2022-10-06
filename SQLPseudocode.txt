@@ -1,9 +1,21 @@
 //Question 2
 SELECT MOVIES.Movie_title
 FROM CITY, CINEMA, SCREENING, MOVIES
-WHERE CITY.City_id=Cinema.City_id, SCREENING.Movie_id=MOVIES.Movie_id
+WHERE CITY.City_id=Cinema.City_id AND SCREENING.Movie_id=MOVIES.Movie_id
+
+//Question 4
+SELECT BOOKTIMES.SeatNum
+FROM BOOKTIMES, MOVIES 
+(should CINEMAS) be included???
+WHERE MOVIES.Movie_id=BOOKTIMES.Movie_id
+
+//Question 6
+SELECT COUNT(SeatNum)
+FROM BOOKTIMES, MOVIES, CINEMA
+WHERE MOVIES.Movie_title='Vertigo' AND MOVIES.Movie_id=BOOKTIMES.Movie_id AND BOOKTIMES.Cinema_id=CINEMA.Cinema_id
+
 
 //Question 8
 SELECT SCREENING.Screen_time, CITY.City_name, CINEMA.Cinema_name, MOVIES.Movie_title
 FROM SCREENING, CITY, CINEMA, MOVIES
-WHERE MOVIES.Movie_id=Screening.Movie_id, CITY.City_id=Cinema.City_id, SCREENING.Cinema_id=CITY.City_id, SCREENING.Cinema_id=CITY.Cinema_id
+WHERE MOVIES.Movie_id=Screening.Movie_id AND CITY.City_id=Cinema.City_id AND SCREENING.Cinema_id=CITY.City_id AND SCREENING.Cinema_id=CITY.Cinema_id
