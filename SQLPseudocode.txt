@@ -1,0 +1,9 @@
+//Question 2
+SELECT MOVIES.Movie_title
+FROM CITY, CINEMA, SCREENING, MOVIES
+WHERE CITY.City_id=Cinema.City_id, SCREENING.Movie_id=MOVIES.Movie_id
+
+//Question 8
+SELECT SCREENING.Screen_time, CITY.City_name, CINEMA.Cinema_name, MOVIES.Movie_title
+FROM SCREENING, CITY, CINEMA, MOVIES
+WHERE MOVIES.Movie_id=Screening.Movie_id, CITY.City_id=Cinema.City_id, SCREENING.Cinema_id=CITY.City_id, SCREENING.Cinema_id=CITY.Cinema_id
