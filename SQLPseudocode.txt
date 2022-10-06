@@ -1,21 +1,36 @@
-//Question 2
+//Q2: Enter a city name and retrieve all the movies that are released within that particular city.
 SELECT MOVIES.Movie_title
 FROM CITY, CINEMA, SCREENING, MOVIES
 WHERE CITY.City_id=Cinema.City_id AND SCREENING.Movie_id=MOVIES.Movie_id
 
-//Question 4
+//Q3: List all cinemas that are showing a particular movie.
+SELECT CINEMA.Cinema_name
+FROM CINEMA, MOVIES, SCREENING
+WHERE SCREENING.Movie_id=MOVIES.Movie_id AND CINEMA.Cinema_id=SCREENING.Screen_id
+
+//Q4: List the seats that are booked in all cinemas for a particular movie.
 SELECT BOOKTIMES.SeatNum
 FROM BOOKTIMES, MOVIES 
 (should CINEMAS) be included???
 WHERE MOVIES.Movie_id=BOOKTIMES.Movie_id
 
-//Question 6
+//Q5: Given a specific cinema and movie list the showing times for that movie.
+SELECT MOVIES.Movie_title, SCREENING.Screen_time
+FROM SCREENING, CINEMA, MOVIES
+WHERE MOVIES.Movie_title='Vertigo' AND SCREENING.Movie_id=MOVIES.Movie_id AND CINEMA.Cinema_name='Cinemaprism' AND CINEMA.Cinema_id=SCREENING.Cinema_id
+
+//Q6: Given a movie and session time how many seats are available.
 SELECT COUNT(SeatNum)
 FROM BOOKTIMES, MOVIES, CINEMA
 WHERE MOVIES.Movie_title='Vertigo' AND MOVIES.Movie_id=BOOKTIMES.Movie_id AND BOOKTIMES.Cinema_id=CINEMA.Cinema_id
 
+//Q7: Given a reservation# list the cinema, movie session, and time where seats were booked.
 
-//Question 8
+
+//Q8: List the movies with their corresponding time, city, and cinema name.
 SELECT SCREENING.Screen_time, CITY.City_name, CINEMA.Cinema_name, MOVIES.Movie_title
 FROM SCREENING, CITY, CINEMA, MOVIES
 WHERE MOVIES.Movie_id=Screening.Movie_id AND CITY.City_id=Cinema.City_id AND SCREENING.Cinema_id=CITY.City_id AND SCREENING.Cinema_id=CITY.Cinema_id
+
+//Q9: Given a session time list movie title and session times that do not have any seats available.
+SELECT 
