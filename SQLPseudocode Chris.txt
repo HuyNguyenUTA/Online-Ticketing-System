@@ -1,0 +1,21 @@
+//Q2: Enter a city name and retrieve all the movies that are released within that particular city.
+TODO: Give an actual city name instead of city ID
+SELECT Movies.Movie_title, City.City_name, Cinema.Cinema_name
+FROM City, Cinema, Screening, Movies
+WHERE City.City_id=1 AND City.City_id=Cinema.City_id AND Screening.Cinema_id=Cinema.Cinema_id AND Screening.Movie_id=Movies.Movie_id;
+
+//Q4: List the seats that are booked in all cinemas for a particular movie.
+SELECT BookTicket.SeatNum, Movies.Movie_title, Cinema.Cinema_name
+FROM BookTicket, Movies, Cinema
+WHERE Movies.Movie_id=1 AND Movies.Movie_id=BookTicket.Movie_id AND BookTicket.Cinema_id=Cinema.Cinema_id;
+
+//Q6: Given a session time list the movie titles during that time.
+//TODO: Give a specific char for Screen_time, and not Screen_id
+SELECT Movies.Movie_title
+FROM Movies, Screening
+WHERE Screen_id=2 AND Screening.Movie_id=Movies.Movie_id;
+
+//Q8: List the movies with their corresponding time, city, and cinema name.
+SELECT Screening.Screen_time, City.City_name, Cinema.Cinema_name, Movies.Movie_title
+FROM Screening, City, Cinema, Movies
+WHERE Movies.Movie_id=Screening.Movie_id AND City.City_id=Cinema.City_id AND Screening.Cinema_id=Cinema.Cinema_id AND Cinema.City_id=City.City_id;

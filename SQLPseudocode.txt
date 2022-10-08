@@ -1,7 +1,7 @@
 //Q2: Enter a city name and retrieve all the movies that are released within that particular city.
-SELECT MOVIES.Movie_title
-FROM CITY, CINEMA, SCREENING, MOVIES
-WHERE CITY.City_id=Cinema.City_id AND SCREENING.Movie_id=MOVIES.Movie_id
+SELECT Movies.Movie_title, City.City_name, Cinema.Cinema_name
+FROM City, Cinema, Screening, Movies
+WHERE City.City_id=1 AND City.City_id=Cinema.City_id AND Screening.Cinema_id=Cinema.Cinema_id AND Screening.Movie_id=Movies.Movie_id;
 
 //Q3: List all cinemas that are showing a particular movie.
 SELECT CINEMA.Cinema_name
