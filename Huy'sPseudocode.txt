@@ -1,0 +1,19 @@
+//Q3: List all cinemas that are showing a particular movie.
+SELECT CINEMA.Cinema_name
+FROM CINEMA, MOVIES, SCREENING
+WHERE MOVIES.Movie_id=1 and SCREENING.Movie_id=MOVIES.Movie_id and CINEMA.Cinema_id=SCREENING.Screen_id;
+
+//Q5: Given a specific cinema and movie list the showing times for that movie.
+SELECT SCREENING.Screen_time
+FROM SCREENING, CINEMA, MOVIES
+WHERE MOVIES.Movie_title="Vertigo" AND SCREENING.Movie_id=MOVIES.Movie_id AND CINEMA.Cinema_name="Cinemaprism" AND CINEMA.Cinema_id=SCREENING.Cinema_id;
+
+//Q7: Given a reservation# list the cinema, movie session, and time where seats were booked.
+SELECT CINEMA.Cinema_name, SCREENING.Screen_id, SCREENING.Screen_time
+FROM BOOKTICKET, CINEMA, SCREENING
+WHERE BOOKTICKET.Cinema_id=CINEMA.Cinema_id and SCREENING.Movie_id=BOOKTICKET.Movie_id and SCREENING.Cinema_id=BOOKTICKET.Cinema_id and BOOKTICKET.SeatNum=1;
+
+//Q9: (UPDATED) Given a cinema name list movie title and seat numbers that are reserved.
+SELECT MOVIES.Movie_title, BOOKTICKET.SeatNum
+FROM CINEMA, MOVIES, BOOKTICKET
+WHERE BOOKTICKET.Movie_id=MOVIES.Movie_id and BOOKTICKET.Cinema_id=CINEMA.Cinema_id and CINEMA.Cinema_name="Cinemaprism";
